@@ -3,9 +3,8 @@ import random
 import asyncio
 import os
 
-# طلب التوكن ومعرف السيرفر
+# طلب التوكن عند تشغيل الملف
 TOKEN = input("Enter your bot token: ")
-guild_id = int(input("Enter server ID: "))
 
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
@@ -87,6 +86,7 @@ async def on_ready():
     for i, guild in enumerate(client.guilds):
         print(f"{i + 1} - {guild.name} ({guild.id})")
 
+    guild_id = int(input("Enter server ID: "))
     guild = discord.utils.get(client.guilds, id=guild_id)
 
     if not guild:
